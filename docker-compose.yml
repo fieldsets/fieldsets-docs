@@ -1,0 +1,4 @@
+services:
+    fieldsets-local:
+        volumes:
+            - fieldsets-docs:/usr/local/fieldsets/apps/fieldsets-docs/docs

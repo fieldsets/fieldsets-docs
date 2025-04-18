@@ -1,0 +1,9 @@
+nohup.out
+
+.env
+build/*
+!build
+!build/README.md
+docs/*
+!docs
+!docs/README.md
