@@ -1,0 +1,8 @@
+site_name: Fieldsets Documentation
+
+site_url: localhost:8000/docs
+
+docs_dir: /usr/local/fieldsets/apps/fieldsets-docs/docs
+
+site_dir: /usr/local/fieldsets/apps/fieldsets-docs/site
+
