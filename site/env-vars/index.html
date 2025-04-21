@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://localhost:8000/docs/env-vars/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Enviornment Variables - Fieldsets Documentation</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Fieldsets Documentation</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../install/" class="nav-link">Installation</a>
+                            </li>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">Enviornment Variables</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../data-field-types/" class="nav-link">Field Types</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../data-store-types/" class="nav-link">Store Types</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../install/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../data-field-types/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-light">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#fieldsets-framework-environment-variables" class="nav-link">Fieldsets Framework Environment Variables</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#universal-variables" class="nav-link">Universal Variables</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#multi-container-variables" class="nav-link">Multi-container Variables</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#postgres-container-variables" class="nav-link">Postgres Container Variables</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#clickhouse-variables" class="nav-link">ClickHouse Variables</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#fieldsets-local-variables" class="nav-link">Fieldsets Local Variables</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="fieldsets-framework-environment-variables">Fieldsets Framework Environment Variables</h1>
+<p>The Fieldsets Repository is an wrapper of other docker containers. The environment variables it required to run a pipeline derived container will vary on the projects integrated to each pipeline project.</p>
+<p>The table below lists all the variables utilized within Fieldsets's data pipeline and the projects they are intergrated with. For more details, you can check the environments section of each individual project's <code>README</code> or have a look at the project configuration documentataion found in <a href="../../config/docker/">config/docker</a>.</p>
+<p><strong>NOTES:</strong>
+-  All PATH variables expect a trailing <code>/</code>
+-  Variable tables organized by project usage with largest multi project variables listed first</p>
+<h2 id="universal-variables">Universal Variables</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Variable</strong></th>
+<th style="text-align: left;"><strong>Default Value</strong></th>
+<th style="text-align: left;"><strong>Valid Values</strong></th>
+<th style="text-align: left;"><strong>Projects</strong></th>
+<th style="text-align: left;"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">VERSION</td>
+<td style="text-align: left;"><code>latest</code></td>
+<td style="text-align: left;"><em>any string</em></td>
+<td style="text-align: left;">all</td>
+<td style="text-align: left;">Fieldsets pipeline version</td>
+</tr>
+<tr>
+<td style="text-align: left;">ENVIRONMENT</td>
+<td style="text-align: left;"><code>dev</code></td>
+<td style="text-align: left;"><em>any string</em></td>
+<td style="text-align: left;">all</td>
+<td style="text-align: left;">Server environment</td>
+</tr>
+<tr>
+<td style="text-align: left;">COMPOSE_PATH_SEPARATOR</td>
+<td style="text-align: left;"><code>:</code></td>
+<td style="text-align: left;"><code>:</code> (mac/linux) or <code>;</code> (windows)</td>
+<td style="text-align: left;">all</td>
+<td style="text-align: left;">native docker compose variable. Do not change.</td>
+</tr>
+<tr>
+<td style="text-align: left;">COMPOSE_FILE</td>
+<td style="text-align: left;"><code>./docker-compose.yml:./config/postgres/docker-compose.yml</code></td>
+<td style="text-align: left;">A <code>:</code> separated string of relative docker compose file paths.</td>
+<td style="text-align: left;">all</td>
+<td style="text-align: left;">Make sure the top level compose file is first followed by any other partial of full compose files.</td>
+</tr>
+<tr>
+<td style="text-align: left;">LOCAL_UID</td>
+<td style="text-align: left;"><code>1000</code></td>
+<td style="text-align: left;"><em>any integer. Typically <code>1000</code> (linux) or <code>502</code> (mac)</em></td>
+<td style="text-align: left;">all</td>
+<td style="text-align: left;">User id of host account. Use the command <code>id -u</code> to retrieve your user id. This allows you to write to containers w/o permission errors.</td>
+</tr>
+<tr>
+<td style="text-align: left;">LOCAL_GID</td>
+<td style="text-align: left;"><code>1000</code></td>
+<td style="text-align: left;"><em>any integer. Typically <code>1000</code> (linux) or <code>20</code> (mac)</em></td>
+<td style="text-align: left;">all</td>
+<td style="text-align: left;">Group id of host account. Use the command <code>id -g</code> to retrieve the group id.</td>
+</tr>
+<tr>
+<td style="text-align: left;">TIMEZONE</td>
+<td style="text-align: left;"><code>America/New_York</code></td>
+<td style="text-align: left;"><em>Any <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">valid timezone string</a></em></td>
+<td style="text-align: left;">all</td>
+<td style="text-align: left;">Timezone of the container host server</td>
+</tr>
+<tr>
+<td style="text-align: left;">FIELDSETS_NETWORK_SUBNET</td>
+<td style="text-align: left;"><code>172.28.0.0/24</code></td>
+<td style="text-align: left;"><em>any valid ipv4 Class A range address</em></td>
+<td style="text-align: left;">all</td>
+<td style="text-align: left;">The address range subnet which containers can communicate under</td>
+</tr>
+<tr>
+<td style="text-align: left;">FIELDSETS_SRC_PATH</td>
+<td style="text-align: left;"><code>./src/</code></td>
+<td style="text-align: left;"><em>any relative path string</em></td>
+<td style="text-align: left;"><a href="https://github.com/Fieldsets/fieldsets-local">fieldsets-local</a></td>
+<td style="text-align: left;">Mounts this path to <code>/fieldsets</code> within container</td>
+</tr>
+</tbody>
+</table>
+<h2 id="multi-container-variables">Multi-container Variables</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Variable</strong></th>
+<th style="text-align: left;"><strong>Default Value</strong></th>
+<th style="text-align: left;"><strong>Valid Values</strong></th>
+<th style="text-align: left;"><strong>Projects</strong></th>
+<th style="text-align: left;"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">POSTGRES_VERSION</td>
+<td style="text-align: left;"><code>15</code></td>
+<td style="text-align: left;"><em>any valid major version number</em></td>
+<td style="text-align: left;"><ul><li><a href="https://github.com/Fieldsets/fieldsets-local">fieldsets-local</a></li><li><a href="https://github.com/Fieldsets/docker-postgres">docker-postgres</a></li></ul></td>
+<td style="text-align: left;">PostgreSQL Major Release Version.</td>
+</tr>
+<tr>
+<td style="text-align: left;">POSTGRES_USER</td>
+<td style="text-align: left;"><code>postgres</code></td>
+<td style="text-align: left;"><em>any string</em></td>
+<td style="text-align: left;"><ul><li><a href="https://github.com/Fieldsets/fieldsets-local">fieldsets-local</a></li><li><a href="https://github.com/Fieldsets/docker-postgres">docker-postgres</a></li></ul></td>
+<td style="text-align: left;">PostgreSQL DB username</td>
+</tr>
+<tr>
+<td style="text-align: left;">POSTGRES_PASSWORD</td>
+<td style="text-align: left;"><code>fieldsets</code></td>
+<td style="text-align: left;"><em>any string</em></td>
+<td style="text-align: left;"><ul><li><a href="https://github.com/Fieldsets/fieldsets-local">fieldsets-local</a></li><li><a href="https://github.com/Fieldsets/docker-postgres">docker-postgres</a></li></ul></td>
+<td style="text-align: left;">PostgreSQL DB user password</td>
+</tr>
+<tr>
+<td style="text-align: left;">POSTGRES_HOST</td>
+<td style="text-align: left;"><code>172.28.0.7</code></td>
+<td style="text-align: left;"><em>any valid ipv4 address or DNS host string</em></td>
+<td style="text-align: left;"><ul><li><a href="https://github.com/Fieldsets/fieldsets-local">fieldsets-local</a></li><li><a href="https://github.com/Fieldsets/docker-postgres">docker-postgres</a></li></ul></td>
+<td style="text-align: left;">Address of PostgreSQL host. May be external or containerized address.</td>
+</tr>
+<tr>
+<td style="text-align: left;">POSTGRES_PORT</td>
+<td style="text-align: left;"><code>5432</code></td>
+<td style="text-align: left;"><em>any integer</em></td>
+<td style="text-align: left;"><ul><li><a href="https://github.com/Fieldsets/fieldsets-local">fieldsets-local</a></li><li><a href="https://github.com/Fieldsets/docker-postgres">docker-postgres</a></li></ul></td>
+<td style="text-align: left;">PostgreSQL port for connection</td>
+</tr>
+<tr>
+<td style="text-align: left;">POSTGRES_DB</td>
+<td style="text-align: left;"><code>fieldsets</code></td>
+<td style="text-align: left;"><em>any string</em></td>
+<td style="text-align: left;"><ul><li><a href="https://github.com/Fieldsets/fieldsets-local">fieldsets-local</a></li><li><a href="https://github.com/Fieldsets/docker-postgres">docker-postgres</a></li></ul></td>
+<td style="text-align: left;">PostgreSQL database name</td>
+</tr>
+<tr>
+<td style="text-align: left;">ENABLE_TERMINAL</td>
+<td style="text-align: left;"><code>false</code></td>
+<td style="text-align: left;"><code>true</code> or <code>false</code></td>
+<td style="text-align: left;"><ul><li><a href="https://github.com/Fieldsets/fieldsets-local">fieldsets-local</a></li></ul></td>
+<td style="text-align: left;">Sets variable withing docker compose file <code>tty: ${ENABLE_TERMINAL}</code>. Allows for pseudo tty.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="postgres-container-variables">Postgres Container Variables</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Variable</strong></th>
+<th style="text-align: left;"><strong>Default Value</strong></th>
+<th style="text-align: left;"><strong>Valid Values</strong></th>
+<th style="text-align: left;"><strong>Projects</strong></th>
+<th style="text-align: left;"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">POSTGRES_CONFIG_PATH</td>
+<td style="text-align: left;"><code>./config/postgres/</code></td>
+<td style="text-align: left;"><em>any valid path</em></td>
+<td style="text-align: left;"><a href="https://github.com/Fieldsets/docker-postgres">docker-postgres</a></td>
+<td style="text-align: left;">Location of Dockerfile.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="clickhouse-variables">ClickHouse Variables</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Variable</strong></th>
+<th style="text-align: left;"><strong>Default Value</strong></th>
+<th style="text-align: left;"><strong>Valid Values</strong></th>
+<th style="text-align: left;"><strong>Projects</strong></th>
+<th style="text-align: left;"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">ENABLE_STORE</td>
+<td style="text-align: left;"><code>false</code></td>
+<td style="text-align: left;">Disabled by default.</td>
+<td style="text-align: left;"><a href="https://github.com/Fieldsets/fieldsets-local">fieldsets-local</a></td>
+<td style="text-align: left;">Enable to use column store data tables</td>
+</tr>
+<tr>
+<td style="text-align: left;">CLICKHOUSE_VERSION</td>
+<td style="text-align: left;"><code>24</code></td>
+<td style="text-align: left;"><em>any valid major version number</em></td>
+<td style="text-align: left;">none</td>
+<td style="text-align: left;">Clickhouse major release version</td>
+</tr>
+<tr>
+<td style="text-align: left;">CLICKHOUSE_CONFIG_PATH</td>
+<td style="text-align: left;"><code>./config/clickhouse/</code></td>
+<td style="text-align: left;"><em>any valid path</em></td>
+<td style="text-align: left;">none</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">CLICKHOUSE_USER</td>
+<td style="text-align: left;"><code>default</code></td>
+<td style="text-align: left;"><em>any string</em></td>
+<td style="text-align: left;">none</td>
+<td style="text-align: left;">ClickHouse DB username</td>
+</tr>
+<tr>
+<td style="text-align: left;">CLICKHOUSE_PASSWORD</td>
+<td style="text-align: left;"><code>fieldsets</code></td>
+<td style="text-align: left;"><em>any string</em></td>
+<td style="text-align: left;">none</td>
+<td style="text-align: left;">ClickHouse DB user password</td>
+</tr>
+<tr>
+<td style="text-align: left;">CLICKHOUSE_HOST</td>
+<td style="text-align: left;"><code>172.28.0.5</code></td>
+<td style="text-align: left;"><em>any valid ipv4 address or DNS host string</em></td>
+<td style="text-align: left;">none</td>
+<td style="text-align: left;">Address of ClickHouse host. May be external or containerized address.</td>
+</tr>
+<tr>
+<td style="text-align: left;">CLICKHOUSE_PORT</td>
+<td style="text-align: left;"><code>8123</code></td>
+<td style="text-align: left;"><em>any integer</em></td>
+<td style="text-align: left;">none</td>
+<td style="text-align: left;">ClickHouse port for connection</td>
+</tr>
+<tr>
+<td style="text-align: left;">CLICKHOUSE_DB</td>
+<td style="text-align: left;"><code>fieldsets</code></td>
+<td style="text-align: left;"><em>any string</em></td>
+<td style="text-align: left;">none</td>
+<td style="text-align: left;">ClickHouse DB name</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fieldsets-local-variables">Fieldsets Local Variables</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Variable</strong></th>
+<th style="text-align: left;"><strong>Default Value</strong></th>
+<th style="text-align: left;"><strong>Valid Values</strong></th>
+<th style="text-align: left;"><strong>Projects</strong></th>
+<th style="text-align: left;"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">FIELDSETS_SRC_PATH</td>
+<td style="text-align: left;"><code>./src/</code></td>
+<td style="text-align: left;"><em>any relative path string</em></td>
+<td style="text-align: left;"><a href="https://github.com/Fieldsets/fieldsets-local">fieldsets-local</a></td>
+<td style="text-align: left;">Mounts this path to <code>/fieldsets</code> within container</td>
+</tr>
+<tr>
+<td style="text-align: left;">FIELDSETS_LOCAL_CONFIG_PATH</td>
+<td style="text-align: left;"><code>./config/local/</code></td>
+<td style="text-align: left;"><em>any relative path string</em></td>
+<td style="text-align: left;"><a href="https://github.com/Fieldsets/fieldsets-local">fieldsets-local</a></td>
+<td style="text-align: left;">Location of Dockerfile.</td>
+</tr>
+<tr>
+<td style="text-align: left;">FIELDSETS_LOCAL_HOST</td>
+<td style="text-align: left;"><code>172.28.0.6</code></td>
+<td style="text-align: left;"><em>any valid ipv4 address</em></td>
+<td style="text-align: left;"><a href="https://github.com/Fieldsets/fieldsets-local">fieldsets-local</a></td>
+<td style="text-align: left;">Allows external containers to access this container vi local ip address.</td>
+</tr>
+<tr>
+<td style="text-align: left;">SSH_PORT</td>
+<td style="text-align: left;"><code>22</code></td>
+<td style="text-align: left;"><em>any integer</em></td>
+<td style="text-align: left;"><a href="https://github.com/Fieldsets/fieldsets-local">fieldsets-local</a></td>
+<td style="text-align: left;">Port number of Fieldsets jump server</td>
+</tr>
+<tr>
+<td style="text-align: left;">SSH_USER</td>
+<td style="text-align: left;"><code>NULL</code></td>
+<td style="text-align: left;"><em>any string</em></td>
+<td style="text-align: left;"><a href="https://github.com/Fieldsets/fieldsets-local">fieldsets-local</a></td>
+<td style="text-align: left;">Username for Fieldsets jump server login</td>
+</tr>
+<tr>
+<td style="text-align: left;">SSH_KEY_PATH</td>
+<td style="text-align: left;"><code>~/.ssh/</code></td>
+<td style="text-align: left;"><em>any valid file path</em></td>
+<td style="text-align: left;"><a href="https://github.com/Fieldsets/fieldsets-local">fieldsets-local</a></td>
+<td style="text-align: left;">RSA key file path</td>
+</tr>
+</tbody>
+</table></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

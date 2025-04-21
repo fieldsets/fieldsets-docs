@@ -1,1 +1,8 @@
-
+volumes:
+  fieldsets-docs:
+      driver: local
+      name: fieldsets-docs
+      driver_opts:
+          type: 'none'
+          o: 'bind'
+          device: './docs'
