@@ -1,14 +1,18 @@
 site_name: Fieldsets Documentation
 
-site_url: http://localhost:8000/docs
+site_url: http://localhost:8000/docs/
 
-docs_dir: /usr/local/fieldsets/apps/fieldsets-docs/docs
+docs_dir: /usr/local/fieldsets/apps/fieldsets-docs/docs/
 
 site_dir: /usr/local/fieldsets/apps/fieldsets-docs/site
 
 nav:
-  - Home: index.md
-  - Installation: install.md
-  - Enviornment Variables: env-vars.md
-  - Field Types: data-field-types.md
-  - Store Types: data-store-types.md
+  - 'Home': 'index.md'
+  - 'Installation': install.md
+  - 'Enviornment Variables': env-vars.md
+  - 'Field Types': data-field-types.md
+  - 'Store Types': data-store-types.md
+  - 'Coding Standards': '/developer/coding-standards/'
+  - 'Schemas': '/schemas/'
+  - 'Tools': 'tools.md'
+  - 'Roadmap': 'todo.md'
